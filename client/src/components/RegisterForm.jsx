@@ -1,20 +1,34 @@
-import React, { useState } from "react";
+import { useContext, useState } from "react";
+import { AppContext } from "../context/AppContext";
+import { useNavigate } from "react-router-dom";
 
 function RegisterForm() {
+
+  const {backendUrl} = useContext(AppContext)
+
   const [data, setData] = useState({
     username: "",
     email: "",
     password: "",
   });
 
-  const login = (e) => {
+  const register = (e) => {
     e.preventDefault();
-    console.log(data);
+
+    fetch("",{
+      method:"POST",
+      body: JSON.stringify(data),
+      headers:{
+        "Content-type":"aplication/json"
+      }
+    }).then((res)=>{
+      return console.log(res)
+    })
   };
 
   return (
     <div className="py-10">
-      <form action="" className="flex flex-col gap-3" onSubmit={login}>
+      <form action="" className="flex flex-col gap-3" onSubmit={register}>
         <div className="flex flex-col gap-1">
           <label htmlFor="username">
             Username <span className="text-red-600">*</span>

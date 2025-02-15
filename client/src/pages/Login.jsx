@@ -1,7 +1,7 @@
-import React from "react";
 import LoginForm from "../components/LoginForm";
 import Auth from "../../public/Auth.jpg";
 import { Link } from "react-router-dom";
+
 
 function Login() {
   return (
